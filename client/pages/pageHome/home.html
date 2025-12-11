@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherForecast.vn - Dự báo thời tiết Việt Nam</title>
+    <link
+      rel="icon"
+      type="image/img"
+      href="/client/assets/images/logoApp/logoHome.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/client/pages/pageHome/home.css" />
+  </head>
+  <body>
+    <!-- code here -->
+    <div class="loadingScreen">
+      <i class="fa-solid fa-sun"></i>
+      <div class="progressBar">
+        <div class="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- -->
+    <div class="container">
+      <div class="toolBar">
+        <div class="fourLocationsFPT">
+          <div id="location" class="locations">Hà Nội - Hola</div>
+          <div id="location" class="locations">Đà Nẵng - Fuda</div>
+          <div id="location" class="locations">Cần Thơ - Hovilo</div>
+          <div id="location" class="locations">Quy Nhơn - QuyNhon</div>
+        </div>
+        <div class="convertTemperation">
+          <div class="degCelsius">°C</div>
+          <button id="convertMode">
+            <span class="emoji">⚫</span>
+          </button>
+          <div class="degFahrenheit">°F</div>
+        </div>
+        <div class="searchInfor">
+          <i id="searchIcon" class="fa-solid fa-magnifying-glass"></i>
+          <input id="inputSearch" type="text" />
+        </div>
+      </div>
+      <div class="mainInfor hideText">
+        <!--  -->
+
+        <div class="inforCurrentLocation">
+          <div id="nameLocationCurrent" class="nameLocationCurrent">
+            Thủ Đức - Xavalo
+          </div>
+          <div id="currentDateLocation" class="currentDateLocation"></div>
+        </div>
+        <!-- forecastInfor -->
+        <div class="forecastInfor">
+          <div id="preForecast" class="preForecast">
+            <div class="titleForecastPre">YESTERDAY</div>
+            <div class="narrowPre">
+              <i class="fa-solid fa-arrow-left"></i>
+            </div>
+          </div>
+          <div class="iconForecast">🌦️</div>
+          <div id="nextForecast" class="nextForecast">
+            <div class="titleForecastNext">TOMORROW</div>
+            <div class="narrowNext">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="inforDetailLocation">
+          <div class="temperation">32°C</div>
+          <div class="currTime">
+            <i class="fa-solid fa-clock"></i>
+            <div class="Time">Time:</div>
+            <div id="currentTimeLocation" class="currentTimeLocation"></div>
+            <i class="fa-solid fa-clock"></i>
+          </div>
+
+          <div class="extraInfor">
+            <div class="tempHigh">
+              <i class="fa-solid fa-temperature-high"></i>
+              <div class="temperation">47°F</div>
+            </div>
+
+            <div class="droplet">
+              <i class="fa-solid fa-droplet"></i>
+              <div class="temperation">57%</div>
+            </div>
+
+            <div class="cloudyHeavy">
+              <i class="fa-solid fa-cloud-showers-heavy"></i>
+              <div class="temperation">5 mm</div>
+            </div>
+
+            <div class="wind">
+              <i class="fa-solid fa-wind"></i>
+              <div class="temperation">7 mph</div>
+            </div>
+
+            <div class="gauge">
+              <i class="fa-solid fa-gauge"></i>
+              <div class="temperation">1014 hPa</div>
+            </div>
+
+            <div class="tempLow">
+              <i class="fa-solid fa-temperature-low"></i>
+              <div class="temperation">37°T</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- code here -->
+    <!-- script -->
+    <script src="/client/assets/js/main.js"></script>
+  </body>
+</html>
