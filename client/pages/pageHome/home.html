@@ -28,11 +28,35 @@
     <div class="container">
       <div class="toolBar">
         <div class="fourLocationsFPT">
-          <div id="location" class="locations">Hà Nội - Hola</div>
-          <div id="location" class="locations">Đà Nẵng - Fuda</div>
-          <div id="location" class="locations">Cần Thơ - Hovilo</div>
-          <div id="location" class="locations">Quy Nhơn - QuyNhon</div>
+          <div class="location" data-city="Hanoi" data-name="Hà Nội - Hola">
+            Hà Nội
+          </div>
+          <div class="location" data-city="Da Nang" data-name="Đà Nẵng - Fuda">
+            Đà Nẵng
+          </div>
+          <div
+            class="location"
+            data-city="Can Tho"
+            data-name="Cần Thơ - Hovilo"
+          >
+            Cần Thơ
+          </div>
+          <div
+            class="location"
+            data-city="Quy Nhon"
+            data-name="Quy Nhơn - QuyNhon"
+          >
+            Quy Nhơn
+          </div>
+          <div
+            class="location"
+            data-city="Ho Chi Minh"
+            data-name="Hồ Chí Minh - Xavalo"
+          >
+            Hồ Chí Minh
+          </div>
         </div>
+        <!--  -->
         <div class="convertTemperation">
           <div class="degCelsius">°C</div>
           <button id="convertMode">
@@ -40,9 +64,18 @@
           </button>
           <div class="degFahrenheit">°F</div>
         </div>
+        <!--  -->
         <div class="searchInfor">
           <i id="searchIcon" class="fa-solid fa-magnifying-glass"></i>
-          <input id="inputSearch" type="text" />
+          <input id="inputSearch" type="text" placeholder="Locations..." />
+        </div>
+        <!--  -->
+        <div class="convertToggle">
+          <div class="light">☀️</div>
+          <button id="convertToggle">
+            <span class="emojiToggle">⚫</span>
+          </button>
+          <div class="dark">🌑</div>
         </div>
       </div>
       <div class="mainInfor hideText">
@@ -72,7 +105,7 @@
         </div>
         <!--  -->
         <div class="inforDetailLocation">
-          <div class="temperation">32°C</div>
+          <div id="temperation" class="temperation">30°C</div>
           <div class="currTime">
             <i class="fa-solid fa-clock"></i>
             <div class="Time">Time:</div>
@@ -118,5 +151,6 @@
     <!-- code here -->
     <!-- script -->
     <script src="/client/assets/js/main.js"></script>
+    <script src="/client/assets/js/api/weatherAPI.js"></script>
   </body>
 </html>

@@ -1,10 +1,36 @@
 const icon = document.getElementById("searchIcon");
 const input = document.getElementById("inputSearch");
 
-icon.addEventListener("click", () => {
+console.log("Icon:", icon); //
+console.log("Input:", input);
+
+icon.addEventListener("click", (e) => {
+  console.log("Clicked!"); //
   input.classList.toggle("show");
   input.focus();
 });
+//
+
+// convert temperation
+const btn = document.getElementById("convertMode");
+const tempE = document.getElementById("temperation");
+
+btn.addEventListener("click", () => {
+  btn.classList.toggle("active");
+
+  let current = tempE.textContent;
+
+  if (current.includes("°C")) {
+    let c = parseFloat(current);
+    let f = (c * 9) / 5 + 32;
+    tempE.textContent = Math.round(f) + "°F";
+  } else {
+    let f = parseFloat(current);
+    let c = ((f - 32) * 5) / 9;
+    tempE.textContent = Math.round(c) + "°C";
+  }
+});
+//
 
 //  update current time
 function showCurrentDate() {
@@ -36,7 +62,17 @@ document.addEventListener("DOMContentLoaded", () => {
   showCurrentTime();
   setInterval(showCurrentTime, 1000);
 });
+//
+let firstIconPlayed = false;
 
+function runFirstIconAnimation() {
+  if (firstIconPlayed) return; // chỉ cho chạy 1 lần
+  firstIconPlayed = true;
+
+  iconForecastEl.classList.add("icon-first-appear");
+}
+
+//
 window.addEventListener("load", () => {
   const fill = document.querySelector(".progressFill");
   const loadingScreen = document.querySelector(".loadingScreen");
@@ -81,7 +117,6 @@ window.addEventListener("load", () => {
             .querySelector(".nextForecast")
             .classList.add("showNarrowForecast");
         }, 1800);
-        //
       }, 100);
     }
   }, 60);

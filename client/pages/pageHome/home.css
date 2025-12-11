@@ -4,9 +4,9 @@
   box-sizing: border-box;
   font-size: 62.5%;
   scroll-behavior: smooth;
-  cursor: pointer;
 }
 body {
+  cursor: default;
   font-size: 1.6rem;
   overflow: hidden;
   color: #10151b;
@@ -24,13 +24,13 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #e8f0fa; /* nền xanh nhạt giống ảnh */
+  background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  z-index: 2000;
+  z-index: 21;
 }
 
 .loadingScreen i {
@@ -66,6 +66,8 @@ body {
   font-size: 4.5rem;
   font-weight: bold;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 999;
+  position: relative;
 }
 
 .toolBar {
@@ -88,7 +90,7 @@ body {
   justify-content: center;
 }
 
-.locations:hover {
+.location:hover {
   color: #fbff00;
   transition: all 0.18s ease-in-out;
 }
@@ -102,48 +104,99 @@ body {
   /* border: 1px solid blue; */
   width: 10%;
 }
+
 #convertMode {
   width: 4rem;
   border-radius: 5rem;
   height: 1.8rem;
   display: flex;
-
-  border: 0.1rem solid black;
-  background-color: transparent;
+  position: relative;
+  border: 0.1rem solid rgb(255, 255, 255);
+  /* background-color: transparent; */
+  background-color: #ffffff3b;
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
 }
-.emoji {
+/*  */
+.convertToggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  /* border: 1px solid blue; */
+  width: 10%;
+}
+#convertToggle {
+  width: 4rem;
+  border-radius: 5rem;
+  height: 1.8rem;
+  display: flex;
+  position: relative;
+  border: 0.1rem solid rgb(255, 255, 255);
+  /* background-color: transparent; */
+  background-color: #ffffff3b;
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
+}
+.emoji,
+.emojiToggle {
   font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+  transition: 0.25s ease;
 }
+#convertMode.active .emoji {
+  left: 2.2rem;
+}
+#convertToggle.active .emojiToggle {
+  left: 2.2rem;
+}
+/*  */
+
 /*  */
 .searchInfor {
   position: relative;
   display: flex;
   align-items: center;
   gap: 6px;
-  /* border: 1px solid blue; */
   width: 25%;
+  z-index: 1001; /* Cao hơn toolBar (999) */
+}
+/*  */
+.convertToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #searchIcon {
   padding-left: 2.5rem;
   font-size: 1.5rem;
   font-weight: bolder;
+  cursor: pointer; /* Thêm cursor pointer */
+  z-index: 1002; /* Đảm bảo icon luôn click được */
 }
 #inputSearch {
-  width: 0;
-  opacity: 0;
+  /* width: 0; */
+  /* opacity: 0; */
   padding: 0.4rem 0.8rem;
-  border: 0.15rem solid #000000;
+  border: none;
   border-radius: 5rem;
-  transition: 0.3s ease;
-  background-color: transparent;
-  /* filter: blur(0.1rem); */
+  transition: width 0.3s ease, opacity 0.3s ease; /* Tách riêng transition */
+  background-color: #ffffff3b;
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
+  font-size: 1.6rem; /* Thêm font-size cho input text */
+  color: #000; /* Thêm màu chữ */
 }
+
 input:focus-visible {
   outline: none;
 }
+
 #inputSearch.show {
   width: 25rem;
   opacity: 1;
+  padding: 0.4rem 0.8rem; /* Đảm bảo padding vẫn có khi show */
 }
 
 /* 
@@ -161,6 +214,7 @@ input:focus-visible {
 .inforCurrentLocation {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1.5rem;
   font-size: 3rem;
   font-weight: normal;
@@ -201,6 +255,11 @@ input:focus-visible {
   font-size: 2.5rem;
   font-family: Tahoma, Geneva, Verdana, sans-serif;
 }
+.preForecast i:hover,
+.nextForecast i:hover {
+  color: #fbff00;
+  cursor: pointer;
+}
 
 .narrowPre,
 .narrowNext {
@@ -210,7 +269,7 @@ input:focus-visible {
 .iconForecast {
   display: flex;
   align-items: center;
-  font-size: 22rem;
+  font-size: 20rem;
 }
 /*  */
 .preForecast {
@@ -249,9 +308,8 @@ input:focus-visible {
   justify-content: space-around;
   font-size: 10rem;
   font-family: Tahoma, Geneva, Verdana, sans-serif;
-}
-.inforDetailLocation {
   animation: none;
+  z-index: 1;
 }
 
 .currTime {
@@ -274,24 +332,21 @@ input:focus-visible {
   color: #1f2c3d;
 }
 
-/* Trạng thái bắt đầu khi load trang */
-
-.iconForecast {
-  animation: sunUp 1s ease forwards;
-  animation-delay: 4.2s;
-  opacity: 0;
-  z-index: -1;
-}
-
-@keyframes sunUp {
+/*  */
+@keyframes iconFirstUp {
   0% {
-    transform: translateY(20rem);
+    transform: translateY(20px);
     opacity: 0;
   }
   100% {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.icon-first-appear {
+  animation: iconFirstUp 1.2s ease forwards;
+  opacity: 0;
 }
 
 .extraInfor .tempHigh,
@@ -315,7 +370,6 @@ input:focus-visible {
   border-radius: 0;
   margin: 0;
   z-index: 10;
-  /* animation: slideDownWhite 1.8s ease forwards; */
 }
 
 .inforDetailLocation .temperation,
@@ -344,5 +398,35 @@ input:focus-visible {
     height: 35%;
     background-color: white;
     border-radius: 100% 100% 0 0;
+  }
+}
+
+.icon-slide-out {
+  animation: slideOut 0.6s ease forwards;
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(8rem);
+    opacity: 0;
+  }
+}
+
+.icon-slide-in {
+  animation: slideIn 0.6s ease forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(8rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
