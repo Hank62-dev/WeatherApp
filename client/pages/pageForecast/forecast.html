@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherForecast.vn - Dự báo thời tiết</title>
+
+    <!-- css -->
+    <link
+      rel="icon"
+      type="image/img"
+      href="/client/assets/images/logoApp/logoHome.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
+
+    <link rel="stylesheet" href="/client/pages/pageForecast/forecast.css" />
+  </head>
+  <body>
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="/client/assets/images/background.mp4" type="video/mp4" />
+    </video>
+
+    <!-- code here -->
+    <div class="container">
+      <div class="toolBar">
+        <div class="boxLeft">
+          <div class="logoWeatherforecast">
+            <img
+              src="/client/assets/images/logoApp/logoWeatherApp.png"
+              alt="Logo WeatherForecast"
+            />
+          </div>
+        </div>
+
+        <!--  -->
+        <div class="boxRight">
+          <div class="searchInfor">
+            <i id="searchIcon" class="fa-solid fa-magnifying-glass"></i>
+            <input id="inputSearch" type="text" placeholder="Locations..." />
+          </div>
+          <!--  -->
+          <div class="account">
+            <div class="nameAccount">Võ Gia Huy</div>
+            <img
+              src="/client/assets/images/account/account.jpg"
+              alt="ImageAccount"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="boxMainInfor">
+        <div class="boxInforLeft">
+          <div class="inforCurrentLocation">
+            <div class="location">
+              <i class="fa-solid fa-location-dot"></i>
+              <div id="nameLocationCurrent" class="nameLocationCurrent">
+                Thủ Đức - Xavalo
+              </div>
+            </div>
+            <div id="temperation" class="temperation">28°C</div>
+            <div class="iconForecast">🌦️</div>
+            <div class="description">CLear Sky</div>
+
+            <hr id="line" />
+
+            <div id="currentDateLocation" class="currentDateLocation">
+              Saturday
+            </div>
+
+            <div class="currTime">
+              <i class="fa-solid fa-clock"></i>
+              <div class="Time">Time: 23:15:15</div>
+              <div id="currentTimeLocation" class="currentTimeLocation"></div>
+              <i class="fa-solid fa-clock"></i>
+            </div>
+
+            <div class="tempFluctuation">
+              <div class="tempHigh">
+                <i class="fa-solid fa-temperature-high"></i>
+                <div class="temperation">47°F</div>
+              </div>
+
+              <div class="tempLow">
+                <i class="fa-solid fa-temperature-low"></i>
+                <div class="temperation">37°T</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="boxInforRight">
+          <div class="todayHighlights">
+            <div class="titleText">Today's Highlights</div>
+            <div class="extraInfor">
+              <div class="cloudyHeavy">
+                <div class="rainfall" style="font-weight: bold">Rainfall</div>
+                <div class="content">
+                  <i class="fa-solid fa-cloud-showers-heavy"></i>
+                  <div class="temperation">5 <span>mm</span></div>
+                </div>
+              </div>
+
+              <div class="wind">
+                <div class="windSpeed" style="font-weight: bold">
+                  Wind speed
+                </div>
+                <div class="content">
+                  <i class="fa-solid fa-wind"></i>
+                  <div class="temperation">7 <span>mph</span></div>
+                </div>
+              </div>
+
+              <div class="uv">
+                <i class="fa-solid fa-circle-radiation uv-icon"></i>
+                <div class="content">
+                  <div class="ultraViolet" style="font-weight: bold">UV</div>
+
+                  <div class="temperation">1.2</div>
+                </div>
+              </div>
+
+              <div class="gauge">
+                <div class="airPressure" style="font-weight: bold">
+                  Air pressure
+                </div>
+                <div class="content">
+                  <i class="fa-solid fa-gauge"></i>
+                  <div class="temperation">1014 <span>mph</span></div>
+                </div>
+              </div>
+
+              <div class="droplet">
+                <div class="humidity" style="font-weight: bold">Humidity</div>
+                <div class="content">
+                  <i class="fa-solid fa-droplet"></i>
+                  <div class="temperation">57 <span>%</span></div>
+                </div>
+              </div>
+
+              <div class="vision">
+                <i class="fa-solid fa-eye vis-icon"></i>
+                <div class="content">
+                  <div class="visibility" style="font-weight: bold">
+                    Visibility
+                  </div>
+
+                  <div class="temperation">10 <span>km</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+
+          <!--  -->
+          <div class="todayAt">
+            <div class="titleText">Today at</div>
+            <div class="extraInforTodayAt">
+              <div class="splide" id="splideHourForecast">
+                <div class="splide__track">
+                  <ul class="splide__list">
+                    <!--  -->
+                    <li class="splide__slide oneHour">
+                      <div class="contentFCast">
+                        <div class="timeAt">01:00</div>
+                        <div class="iFCast">☀️</div>
+                        <div class="tempTime">28°C</div>
+                      </div>
+                    </li>
+
+                    <li class="splide__slide oneHour">
+                      <div class="contentFCast">
+                        <div class="timeAt">02:00</div>
+                        <div class="iFCast">☀️</div>
+                        <div class="tempTime">28°C</div>
+                      </div>
+                    </li>
+
+                    <li class="splide__slide oneHour">
+                      <div class="contentFCast">
+                        <div class="timeAt">03:00</div>
+                        <div class="iFCast">⛅</div>
+                        <div class="tempTime">28°C</div>
+                      </div>
+                    </li>
+
+                    <li class="splide__slide oneHour">
+                      <div class="contentFCast">
+                        <div class="timeAt">04:00</div>
+                        <div class="iFCast">☀️</div>
+                        <div class="tempTime">28°C</div>
+                      </div>
+                    </li>
+
+                    <li class="splide__slide oneHour">
+                      <div class="contentFCast">
+                        <div class="timeAt">05:00</div>
+                        <div class="iFCast">🌧️</div>
+                        <div class="tempTime">28°C</div>
+                      </div>
+                    </li>
+
+                    <li class="splide__slide oneHour">
+                      <div class="contentFCast">
+                        <div class="timeAt">06:00</div>
+                        <div class="iFCast">🌩️</div>
+                        <div class="tempTime">28°C</div>
+                      </div>
+                    </li>
+
+                    <li class="splide__slide oneHour">
+                      <div class="contentFCast">
+                        <div class="timeAt">07:00</div>
+                        <div class="iFCast">🌧️</div>
+                        <div class="tempTime">28°C</div>
+                      </div>
+                    </li>
+
+                    <li class="splide__slide oneHour">
+                      <div class="contentFCast">
+                        <div class="timeAt">08:00</div>
+                        <div class="iFCast">⛅</div>
+                        <div class="tempTime">28°C</div>
+                      </div>
+                    </li>
+                    <!--  -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--  -->
+
+          <!--  -->
+          <div class="dayForecast">
+            <div class="titleText">Day Forecast</div>
+            <div class="extraInforDayforecast">
+              <div class="monday">
+                <div class="title">Monday</div>
+                <div class="iconFcast">☀️</div>
+                <div class="descript">Sunny</div>
+                <div class="tempa">28°C</div>
+              </div>
+              <hr class="lineBottom" />
+              <div class="tuesday">
+                <div class="title">Tuesday</div>
+                <div class="iconFcast">🌧️</div>
+                <div class="descript">Rain</div>
+                <div class="tempa">25°C</div>
+              </div>
+              <hr class="lineBottom" />
+              <div class="wednesday">
+                <div class="title">Wednesday</div>
+                <div class="iconFcast">🌩️</div>
+                <div class="descript">Storm</div>
+                <div class="tempa">23°C</div>
+              </div>
+              <hr class="lineBottom" />
+              <div class="thursday">
+                <div class="title">Thursday</div>
+                <div class="iconFcast">☀️</div>
+                <div class="descript">Sunny</div>
+                <div class="tempa">29°C</div>
+              </div>
+              <!-- <hr />
+              <div class="friday">
+                <div class="title">Friday</div>
+                <div class="iconFcast">⛅</div>
+                <div class="descript">Cloudy</div>
+                <div class="tempa">27°C</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+    </div>
+    <!-- code here -->
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="/client/assets/js/forecastDetail.js"></script>
+  </body>
+</html>

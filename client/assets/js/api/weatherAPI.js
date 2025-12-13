@@ -29,7 +29,7 @@ let currentIndex = 3; //
 function convertWeatherIcon(condition) {
   const text = condition.toLowerCase();
   //
-  if (text.includes("sun") || text.includes("clear")) return "🌞";
+  if (text.includes("sun") || text.includes("clear")) return "☀️";
   if (text.includes("partly") || text.includes("cloud")) return "⛅";
   if (text.includes("cloudy") && !text.includes("partly")) return "☁️";
 
@@ -39,7 +39,8 @@ function convertWeatherIcon(condition) {
   if (text.includes("thunder") || text.includes("storm")) return "⛈️";
   if (text.includes("lightning")) return "🌩️";
 
-  return "🌞";
+  if (text.includes("snow")) return "🌨️";
+  return "☀️";
 }
 //
 async function getWeatherHistory(city, date) {

@@ -61,6 +61,18 @@ document.addEventListener("DOMContentLoaded", () => {
   showCurrentDate();
   showCurrentTime();
   setInterval(showCurrentTime, 1000);
+
+  //
+  new Splide("#splideHourForecast", {
+    type: "slide",
+    perPage: 5,
+    perMove: 1,
+    gap: "1rem",
+    pagination: false,
+    arrows: false,
+    drag: "free",
+    snap: true,
+  }).mount();
 });
 //
 let firstIconPlayed = false;

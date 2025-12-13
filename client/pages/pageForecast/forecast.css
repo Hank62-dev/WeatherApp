@@ -1,0 +1,478 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  cursor: default;
+  font-size: 1.6rem;
+  overflow: hidden;
+  color: #10151b;
+  background: rgb(26, 34, 44);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/*  */
+.container {
+  width: 84vw;
+  height: 100vh;
+  /* border: 1px solid rgb(255, 255, 255); */
+}
+.toolBar {
+  height: 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 4.5rem;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  /* border: 1px solid rgb(18, 255, 2); */
+}
+
+.boxLeft,
+.boxRight {
+  width: 50%;
+}
+.boxRight {
+  display: flex;
+  justify-content: space-between;
+}
+/*  */
+.logoWeatherforecast {
+  /* border: 1px solid yellow; */
+  width: 10%;
+  display: flex;
+  justify-content: end;
+}
+.logoWeatherforecast img {
+  width: 5rem;
+}
+
+.searchInfor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+/*  */
+.convertToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#searchIcon {
+  padding-left: 2.5rem;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  cursor: pointer;
+  color: white;
+}
+#inputSearch {
+  /* width: 0; */
+  /* opacity: 0; */
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 5rem;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  background-color: #ffffff17;
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+  font-size: 1.6rem;
+  color: #ffffff;
+}
+.searchInfor input {
+  width: 25rem;
+}
+input:focus-visible {
+  outline: none;
+}
+#inputSearch::placeholder {
+  color: #fff;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.account img {
+  width: 4.5rem;
+  border-radius: 5rem;
+}
+.account .nameAccount {
+  color: white;
+  font-size: 1.5rem;
+}
+/*  */
+
+/*  BOX BOTTOM*/
+.boxMainInfor {
+  /* border: 2px solid red; */
+  margin-top: 1.5rem;
+  width: 100%;
+  height: 58rem;
+  display: flex;
+}
+
+.boxInforLeft {
+  width: 33%;
+  height: 100%;
+  /* border: 1px solid rgb(30, 0, 255); */
+  border-radius: 2rem;
+  /* background: rgba(42, 53, 66, 0.356); */
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid red; */
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.location i {
+  font-size: 1.5rem;
+}
+
+.inforCurrentLocation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.inforCurrentLocation .nameLocationCurrent {
+  font-size: 2rem;
+}
+
+.inforCurrentLocation .temperation {
+  font-size: 5rem;
+  font-weight: bold;
+}
+.inforCurrentLocation .iconForecast {
+  font-size: 15rem;
+  animation: floating 3.5s ease-in-out infinite;
+}
+
+.inforCurrentLocation .description {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.3rem 4rem;
+  border-radius: 5rem;
+  color: black;
+  background-color: rgb(255, 145, 10);
+}
+#line {
+  width: 22rem;
+  opacity: 0.5;
+  margin-top: 3rem;
+}
+
+.inforCurrentLocation .currentDateLocation {
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.inforCurrentLocation .currTime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.inforCurrentLocation .tempFluctuation {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.tempHigh .temperation,
+.tempLow .temperation {
+  font-size: 2rem;
+  font-weight: normal;
+}
+.tempHigh i,
+.tempLow i {
+  font-size: 1.5rem;
+}
+
+.tempHigh i {
+  color: red;
+}
+.tempLow i {
+  color: green;
+}
+
+.tempHigh,
+.tempLow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/*  */
+
+/*  */
+.boxInforRight {
+  width: 67%;
+  height: 100%;
+  color: white;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* border: 1px solid rgb(255, 255, 255); */
+}
+/* todayHighlights */
+.todayHighlights {
+  margin: 0.5rem 0;
+  border-radius: 2rem;
+  width: 96%;
+  height: 35%;
+  /* border: 1px solid rgb(255, 255, 255); */
+}
+
+.titleText {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.extraInfor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-left: 2.5rem;
+}
+.extraInfor .cloudyHeavy,
+.extraInfor .wind,
+.extraInfor .gauge,
+.extraInfor .droplet {
+  width: 20rem;
+  height: 8rem;
+  gap: 0.5rem;
+  /* border: 1px solid rgba(255, 255, 255, 0.3); */
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 2rem;
+  background: rgba(0, 0, 0, 0.4);
+}
+.cloudyHeavy > div,
+.wind > div,
+.gauge > div,
+.droplet > div {
+  margin-left: 2rem;
+}
+
+.extraInfor .uv,
+.extraInfor .vision {
+  width: 30rem;
+  height: 8rem;
+  /* border: 1px solid rgba(255, 255, 255, 0.3); */
+  border-radius: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.5rem;
+  background: rgba(0, 0, 0, 0.4);
+}
+.uv > div,
+.vision > div {
+  margin-right: 2rem;
+}
+
+.extraInfor .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.extraInfor .temperation {
+  font-size: 2.5rem;
+}
+.extraInfor i {
+  font-size: 1.5rem;
+}
+
+.uv-icon {
+  background: linear-gradient(
+    45deg,
+    #00ffcc,
+    #00ff00,
+    #ffff00,
+    #ff9900,
+    #ff0000,
+    #cc00ff,
+    #8b00ff
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.extraInfor .uv .uv-icon {
+  font-size: 5rem;
+  margin-left: 2rem;
+}
+
+.vis-icon {
+  font-size: 2rem;
+  color: #4fc3f7; /* xanh trời */
+}
+.extraInfor .vision .vis-icon {
+  font-size: 4rem;
+  margin-left: 2rem;
+}
+
+.extraInfor .vision .content,
+.extraInfor .uv .content {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+}
+/*  */
+
+/* todayAt */
+.todayAt {
+  margin: 0.5rem 0;
+  border-radius: 2rem;
+  width: 96%;
+  height: 25%;
+  /* border: 1px solid rgb(255, 255, 255, 0.3); */
+}
+.extraInforTodayAt {
+  /* border: 1px solid red; */
+  height: 10rem;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+#splideHourForecast {
+  max-width: 100%;
+  overflow: hidden;
+  /* border: 2px solid blue; */
+}
+
+.splide__list {
+  display: flex;
+}
+
+.splide__slide .contentFCast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 3rem;
+  gap: 0.5rem;
+}
+
+.contentFCast .iFCast {
+  font-size: 3rem;
+}
+
+/*  */
+
+/*  */
+/* dayForecast */
+.dayForecast {
+  margin: 0.5rem 0;
+  border-radius: 2rem;
+  width: 96%;
+  height: 40%;
+
+  /* border: 1px solid rgb(255, 255, 255); */
+}
+
+.extraInforDayforecast {
+  font-size: 3rem;
+  gap: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  /* border: 1px solid rgb(255, 255, 255); */
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  padding: 1.2rem 0;
+}
+.lineBottom {
+  width: 95%;
+  opacity: 0.5;
+  margin: none;
+  margin-left: 2rem;
+}
+/*  */
+.monday,
+.tuesday,
+.wednesday,
+.thursday,
+.friday {
+  font-size: 2.6rem;
+  gap: 0.5rem;
+  display: flex;
+  font-weight: 600;
+}
+.title {
+  width: 40%;
+  padding-left: 2rem;
+  /* border: 1px solid red; */
+}
+.iconFcast {
+  /* border: 1px solid red; */
+  width: 3rem;
+}
+.descript {
+  /* border: 1px solid red; */
+  width: 35rem;
+}
+.tempa {
+  width: 10%;
+  text-align: end;
+  padding-right: 2rem;
+  /* border: 1px solid red; */
+}
+
+/*  */
+
+/*  */
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(1rem);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
+}

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WeatherForecast.vn - Dự báo thời tiết Việt Nam</title>
+    <title>WeatherForecast.vn - Dự báo thời tiết</title>
     <link
       rel="icon"
       type="image/img"
@@ -27,6 +27,12 @@
     <!-- -->
     <div class="container">
       <div class="toolBar">
+        <!-- <div class="logoWeatherforecast">
+          <img
+            src="/client/assets/images/logoApp/logoWeatherApp.png"
+            alt="Logo WeatherForecast"
+          />
+        </div> -->
         <div class="fourLocationsFPT">
           <div class="location" data-city="Hanoi" data-name="Hà Nội - Hola">
             Hà Nội
@@ -82,9 +88,11 @@
         <!--  -->
 
         <div class="inforCurrentLocation">
-          <div id="nameLocationCurrent" class="nameLocationCurrent">
-            Thủ Đức - Xavalo
-          </div>
+          <a class="linkTo" href="/client/pages/pageForecast/forecast.html"
+            ><div id="nameLocationCurrent" class="nameLocationCurrent">
+              Thủ Đức - Xavalo
+            </div></a
+          >
           <div id="currentDateLocation" class="currentDateLocation"></div>
         </div>
         <!-- forecastInfor -->
@@ -119,12 +127,12 @@
               <div class="temperation">47°F</div>
             </div>
 
-            <div class="droplet">
-              <i class="fa-solid fa-droplet"></i>
-              <div class="temperation">57%</div>
+            <div class="tempLow">
+              <i class="fa-solid fa-temperature-low"></i>
+              <div class="temperation">37°T</div>
             </div>
 
-            <div class="cloudyHeavy">
+            <div class="cloudyHeavy" style="padding-right: 1.2rem">
               <i class="fa-solid fa-cloud-showers-heavy"></i>
               <div class="temperation">5 mm</div>
             </div>
@@ -134,14 +142,14 @@
               <div class="temperation">7 mph</div>
             </div>
 
-            <div class="gauge">
+            <div class="gauge" style="padding-left: 1.3rem">
               <i class="fa-solid fa-gauge"></i>
               <div class="temperation">1014 hPa</div>
             </div>
 
-            <div class="tempLow">
-              <i class="fa-solid fa-temperature-low"></i>
-              <div class="temperation">37°T</div>
+            <div class="droplet">
+              <i class="fa-solid fa-droplet"></i>
+              <div class="temperation">57%</div>
             </div>
           </div>
         </div>
